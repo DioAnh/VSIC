@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABCDE: Safe & Smart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary-dark': '#1D2B64',
+              'primary-light': '#3E54A3',
+              'accent-pink': '#FF6A88',
+              'accent-yellow': '#FFD872',
+              'glass-bg': 'rgba(255, 255, 255, 0.1)',
+              'glass-border': 'rgba(255, 255, 255, 0.2)',
+              'text-light': '#F0F4FF',
+              'text-dark': '#1D2B64',
+              'text-muted': '#AAB9E4',
+            },
+            fontFamily: {
+              sans: ['Nunito', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script type="importmap">
+{
+  "imports": {
+    "react/jsx-runtime": "https://aistudiocdn.com/react@19.1.1/jsx-runtime",
+    "react-dom/": "https://aistudiocdn.com/react-dom@19.1.1/",
+    "react/": "https://aistudiocdn.com/react@19.1.1/",
+    "react": "https://aistudiocdn.com/react@19.1.1",
+    "@dnd-kit/core": "https://aistudiocdn.com/@dnd-kit/core@6.3.1",
+    "react-confetti": "https://aistudiocdn.com/react-confetti@6.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-primary-dark">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
