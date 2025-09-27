@@ -62,7 +62,7 @@ const CertificateView: React.FC<CertificateViewProps> = ({ levelNameKey, userNam
 
                     <div className="flex justify-between items-center text-sm text-text-muted">
                         <div className="text-left">
-                            <p className="font-bold border-b-2 border-text-muted/50 pb-1 text-text-light">ABCDE Program</p>
+                            <p className="font-bold border-b-2 border-text-muted/50 pb-1 text-text-light">GENDUCATION Program</p>
                             <p>{t('certificate.issuing_authority')}</p>
                         </div>
                         <div className="text-right">

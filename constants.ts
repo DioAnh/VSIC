@@ -129,25 +129,40 @@ export const getMockLevels = (t: (key: string) => string): Level[] => [
         unlocked: false,
         lessons: [
             { id: 'ms_l1', titleKey: "lesson_ms_l1_title", descriptionKey: "lesson_ms_l1_desc", videoUrl: 'https://www.youtube.com/embed/TxtwlOqeg5w', completed: false, quiz: { questions: [
-                { questionKey: "quiz_ms_l1_q1", optionsKeys: ["quiz_ms_l1_q1_o1", "quiz_ms_l1_q1_o2", "quiz_ms_l1_q1_o3"], correctAnswerIndex: 1 },
-                { questionKey: "quiz_ms_l1_q2", optionsKeys: ["quiz_ms_l1_q2_o1", "quiz_ms_l1_q2_o2", "quiz_ms_l1_q2_o3"], correctAnswerIndex: 1 },
-                { questionKey: "quiz_ms_l1_q3", optionsKeys: ["quiz_ms_l1_q3_o1", "quiz_ms_l1_q3_o2", "quiz_ms_l1_q3_o3"], correctAnswerIndex: 2 }
+                { questionKey: "quiz_ms_l1_q1", optionsKeys: ["quiz_ms_l1_q1_o1", "quiz_ms_l1_q1_o2", "quiz_ms_l1_q1_o3", "quiz_ms_l1_q1_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_ms_l1_q2", optionsKeys: ["quiz_ms_l1_q2_o1", "quiz_ms_l1_q2_o2", "quiz_ms_l1_q2_o3", "quiz_ms_l1_q2_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l1_q3", optionsKeys: ["quiz_ms_l1_q3_o1", "quiz_ms_l1_q3_o2", "quiz_ms_l1_q3_o3", "quiz_ms_l1_q3_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l1_q4", optionsKeys: ["quiz_ms_l1_q4_o1", "quiz_ms_l1_q4_o2", "quiz_ms_l1_q4_o3", "quiz_ms_l1_q4_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_ms_l1_q5", optionsKeys: ["quiz_ms_l1_q5_o1", "quiz_ms_l1_q5_o2", "quiz_ms_l1_q5_o3", "quiz_ms_l1_q5_o4"], correctAnswerIndex: 1 }
             ] } },
             { id: 'ms_l2', titleKey: "lesson_ms_l2_title", descriptionKey: "lesson_ms_l2_desc", videoUrl: 'https://www.youtube.com/embed/c0IJlApsckw', completed: false, quiz: { questions: [
-                { questionKey: "quiz_ms_l2_q1", optionsKeys: ["quiz_ms_l2_q1_o1", "quiz_ms_l2_q1_o2", "quiz_ms_l2_q1_o3"], correctAnswerIndex: 0 },
-                { questionKey: "quiz_ms_l2_q2", optionsKeys: ["quiz_ms_l2_q2_o1", "quiz_ms_l2_q2_o2", "quiz_ms_l2_q2_o3"], correctAnswerIndex: 2 },
-                { questionKey: "quiz_ms_l2_q3", optionsKeys: ["quiz_ms_l2_q3_o1", "quiz_ms_l2_q3_o2", "quiz_ms_l2_q3_o3"], correctAnswerIndex: 1 }
+                { questionKey: "quiz_ms_l2_q1", optionsKeys: ["quiz_ms_l2_q1_o1", "quiz_ms_l2_q1_o2", "quiz_ms_l2_q1_o3", "quiz_ms_l2_q1_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l2_q2", optionsKeys: ["quiz_ms_l2_q2_o1", "quiz_ms_l2_q2_o2", "quiz_ms_l2_q2_o3", "quiz_ms_l2_q2_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_ms_l2_q3", optionsKeys: ["quiz_ms_l2_q3_o1", "quiz_ms_l2_q3_o2", "quiz_ms_l2_q3_o3", "quiz_ms_l2_q3_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l2_q4", optionsKeys: ["quiz_ms_l2_q4_o1", "quiz_ms_l2_q4_o2", "quiz_ms_l2_q4_o3", "quiz_ms_l2_q4_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l2_q5", optionsKeys: ["quiz_ms_l2_q5_o1", "quiz_ms_l2_q5_o2", "quiz_ms_l2_q5_o3", "quiz_ms_l2_q5_o4"], correctAnswerIndex: 2 }
             ] } },
+
             { id: 'ms_l3', titleKey: "lesson_ms_l3_title", descriptionKey: "lesson_ms_l3_desc", videoUrl: 'https://www.youtube.com/embed/HuD9wstvO1s', completed: false, quiz: { questions: [
-                { questionKey: "quiz_ms_l3_q1", optionsKeys: ["quiz_ms_l3_q1_o1", "quiz_ms_l3_q1_o2", "quiz_ms_l3_q1_o3"], correctAnswerIndex: 2 },
-                { questionKey: "quiz_ms_l3_q2", optionsKeys: ["quiz_ms_l3_q2_o1", "quiz_ms_l3_q2_o2", "quiz_ms_l3_q2_o3"], correctAnswerIndex: 0 }
+                { questionKey: "quiz_ms_l3_q1", optionsKeys: ["quiz_ms_l3_q1_o1", "quiz_ms_l3_q1_o2", "quiz_ms_l3_q1_o3", "quiz_ms_l3_q1_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l3_q2", optionsKeys: ["quiz_ms_l3_q2_o1", "quiz_ms_l3_q2_o2", "quiz_ms_l3_q2_o3", "quiz_ms_l3_q2_o4"], correctAnswerIndex: 0 },
+                { questionKey: "quiz_ms_l3_q3", optionsKeys: ["quiz_ms_l3_q3_o1", "quiz_ms_l3_q3_o2", "quiz_ms_l3_q3_o3", "quiz_ms_l3_q3_o4"], correctAnswerIndex: 3 },
+                { questionKey: "quiz_ms_l3_q4", optionsKeys: ["quiz_ms_l3_q4_o1", "quiz_ms_l3_q4_o2", "quiz_ms_l3_q4_o3", "quiz_ms_l3_q4_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_ms_l3_q5", optionsKeys: ["quiz_ms_l3_q5_o1", "quiz_ms_l3_q5_o2", "quiz_ms_l3_q5_o3", "quiz_ms_l3_q5_o4"], correctAnswerIndex: 0 }
             ] } },
             { id: 'ms_l4', titleKey: "lesson_ms_l4_title", descriptionKey: "lesson_ms_l4_desc", videoUrl: 'https://www.youtube.com/embed/6hmHLJfOiXs', completed: false, quiz: { questions: [
-                { questionKey: "quiz_ms_l4_q1", optionsKeys: ["quiz_ms_l4_q1_o1", "quiz_ms_l4_q1_o2", "quiz_ms_l4_q1_o3"], correctAnswerIndex: 0 },
-                { questionKey: "quiz_ms_l4_q2", optionsKeys: ["quiz_ms_l4_q2_o1", "quiz_ms_l4_q2_o2", "quiz_ms_l4_q2_o3"], correctAnswerIndex: 1 }
+                { questionKey: "quiz_ms_l4_q1", optionsKeys: ["quiz_ms_l4_q1_o1", "quiz_ms_l4_q1_o2", "quiz_ms_l4_q1_o3", "quiz_ms_l4_q1_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l4_q2", optionsKeys: ["quiz_ms_l4_q2_o1", "quiz_ms_l4_q2_o2", "quiz_ms_l4_q2_o3", "quiz_ms_l4_q2_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_ms_l4_q3", optionsKeys: ["quiz_ms_l4_q3_o1", "quiz_ms_l4_q3_o2", "quiz_ms_l4_q3_o3", "quiz_ms_l4_q3_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_ms_l4_q4", optionsKeys: ["quiz_ms_l4_q4_o1", "quiz_ms_l4_q4_o2", "quiz_ms_l4_q4_o3", "quiz_ms_l4_q4_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l4_q5", optionsKeys: ["quiz_ms_l4_q5_o1", "quiz_ms_l4_q5_o2", "quiz_ms_l4_q5_o3", "quiz_ms_l4_q5_o4"], correctAnswerIndex: 0 }
             ] } },
             { id: 'ms_l5', titleKey: "lesson_ms_l5_title", descriptionKey: "lesson_ms_l5_desc", videoUrl: 'https://www.youtube.com/embed/44qhTShiiXk', completed: false, quiz: { questions: [
-                { questionKey: "quiz_ms_l5_q1", optionsKeys: ["quiz_ms_l5_q1_o1", "quiz_ms_l5_q1_o2", "quiz_ms_l5_q1_o3"], correctAnswerIndex: 0 }
+                { questionKey: "quiz_ms_l5_q1", optionsKeys: ["quiz_ms_l5_q1_o1", "quiz_ms_l5_q1_o2", "quiz_ms_l5_q1_o3", "quiz_ms_l5_q1_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l5_q2", optionsKeys: ["quiz_ms_l5_q2_o1", "quiz_ms_l5_q2_o2", "quiz_ms_l5_q2_o3", "quiz_ms_l5_q2_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_ms_l5_q3", optionsKeys: ["quiz_ms_l5_q3_o1", "quiz_ms_l5_q3_o2", "quiz_ms_l5_q3_o3", "quiz_ms_l5_q3_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l5_q4", optionsKeys: ["quiz_ms_l5_q4_o1", "quiz_ms_l5_q4_o2", "quiz_ms_l5_q4_o3", "quiz_ms_l5_q4_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_ms_l5_q5", optionsKeys: ["quiz_ms_l5_q5_o1", "quiz_ms_l5_q5_o2", "quiz_ms_l5_q5_o3", "quiz_ms_l5_q5_o4"], correctAnswerIndex: 1 }
             ] } },
         ],
         finalAssessment: { questions: [

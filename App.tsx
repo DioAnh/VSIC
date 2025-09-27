@@ -51,7 +51,7 @@ const App: React.FC = () => {
     }, [language, t]);
 
     const handleLogin = useCallback(() => {
-        const storedUser = localStorage.getItem('abcde_user');
+        const storedUser = localStorage.getItem('genducation_user');
         if (storedUser) {
             const parsedUser = JSON.parse(storedUser);
             setUser(parsedUser);
@@ -98,7 +98,7 @@ const App: React.FC = () => {
         setUser(prev => {
             if (!prev) return null;
             const updatedUser = { ...prev, avatar };
-            localStorage.setItem('abcde_user', JSON.stringify(updatedUser));
+            localStorage.setItem('genducation_user', JSON.stringify(updatedUser));
             return updatedUser;
         });
         setGameState(GameState.Learning);
@@ -126,7 +126,7 @@ const App: React.FC = () => {
                     points: prevUser.points + 50 
                 };
                 
-                localStorage.setItem('abcde_user', JSON.stringify(updatedUser));
+                localStorage.setItem('genducation_user', JSON.stringify(updatedUser));
                 return updatedUser;
             });
             setLevels(prevLevels => prevLevels.map(level => ({
@@ -155,7 +155,7 @@ const App: React.FC = () => {
                     points: prevUser.points + 100,
                     completedLevels: [...prevUser.completedLevels, level.id]
                 };
-                localStorage.setItem('abcde_user', JSON.stringify(updatedUser));
+                localStorage.setItem('genducation_user', JSON.stringify(updatedUser));
                 return updatedUser;
             });
 
@@ -184,7 +184,7 @@ const App: React.FC = () => {
                 [storyId]: progress
             };
             const updatedUser = { ...prevUser, storyProgress: updatedProgress };
-            localStorage.setItem('abcde_user', JSON.stringify(updatedUser));
+            localStorage.setItem('genducation_user', JSON.stringify(updatedUser));
             return updatedUser;
         });
     }, []);
@@ -226,7 +226,7 @@ const App: React.FC = () => {
                 newOutfit.push(activeItem);
                 
                 const updatedUser = { ...prevUser, avatar: { ...prevUser.avatar, outfit: newOutfit }};
-                localStorage.setItem('abcde_user', JSON.stringify(updatedUser));
+                localStorage.setItem('genducation_user', JSON.stringify(updatedUser));
                 return updatedUser;
             });
         }

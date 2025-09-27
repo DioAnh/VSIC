@@ -13,7 +13,7 @@ const CorrectAnswerAnimation: React.FC = () => {
                     {t('quiz.correct_feedback')}
                 </h2>
                 <p className="text-3xl font-bold text-accent-yellow mt-2" style={{ textShadow: '0 0 10px rgba(255, 216, 114, 0.7)'}}>
-                    +50 {t('learning.smart_points')}
+                    +20 {t('learning.smart_points')}
                 </p>
             </div>
             <style>{`
