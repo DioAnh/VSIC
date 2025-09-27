@@ -95,7 +95,7 @@ export const getMockLevels = (t: (key: string) => string): Level[] => [
         nameKey: "level_preschool_name",
         unlocked: true,
         lessons: [
-            { id: 'pe_l1', titleKey: "lesson_pe_l1_title", descriptionKey: "lesson_pe_l1_desc", videoUrl: 'https://www.youtube.com/embed/k3t7go-8f5o', completed: false, quiz: { questions: [
+            { id: 'pe_l1', titleKey: "lesson_pe_l1_title", descriptionKey: "lesson_pe_l1_desc", videoUrl: 'https://youtu.be/vJS7nlfLXso?si=OVl9mA3grqjBBntc', completed: false, quiz: { questions: [
                 { questionKey: "quiz_pe_l1_q1", optionsKeys: ["quiz_pe_l1_q1_o1", "quiz_pe_l1_q1_o2", "quiz_pe_l1_q1_o3"], correctAnswerIndex: 1 },
                 { questionKey: "quiz_pe_l1_q2", optionsKeys: ["quiz_pe_l1_q2_o1", "quiz_pe_l1_q2_o2", "quiz_pe_l1_q2_o3"], correctAnswerIndex: 0 },
                 { questionKey: "quiz_pe_l1_q3", optionsKeys: ["quiz_pe_l1_q3_o1", "quiz_pe_l1_q3_o2", "quiz_pe_l1_q3_o3"], correctAnswerIndex: 2 }
@@ -128,25 +128,25 @@ export const getMockLevels = (t: (key: string) => string): Level[] => [
         nameKey: "level_ms_name",
         unlocked: false,
         lessons: [
-            { id: 'ms_l1', titleKey: "lesson_ms_l1_title", descriptionKey: "lesson_ms_l1_desc", videoUrl: 'https://www.youtube.com/embed/FDa-k62_f8w', completed: false, quiz: { questions: [
+            { id: 'ms_l1', titleKey: "lesson_ms_l1_title", descriptionKey: "lesson_ms_l1_desc", videoUrl: 'https://www.youtube.com/embed/TxtwlOqeg5w', completed: false, quiz: { questions: [
                 { questionKey: "quiz_ms_l1_q1", optionsKeys: ["quiz_ms_l1_q1_o1", "quiz_ms_l1_q1_o2", "quiz_ms_l1_q1_o3"], correctAnswerIndex: 1 },
                 { questionKey: "quiz_ms_l1_q2", optionsKeys: ["quiz_ms_l1_q2_o1", "quiz_ms_l1_q2_o2", "quiz_ms_l1_q2_o3"], correctAnswerIndex: 1 },
                 { questionKey: "quiz_ms_l1_q3", optionsKeys: ["quiz_ms_l1_q3_o1", "quiz_ms_l1_q3_o2", "quiz_ms_l1_q3_o3"], correctAnswerIndex: 2 }
             ] } },
-            { id: 'ms_l2', titleKey: "lesson_ms_l2_title", descriptionKey: "lesson_ms_l2_desc", videoUrl: 'https://www.youtube.com/embed/i7a_y6i3gE8', completed: false, quiz: { questions: [
+            { id: 'ms_l2', titleKey: "lesson_ms_l2_title", descriptionKey: "lesson_ms_l2_desc", videoUrl: 'https://www.youtube.com/embed/c0IJlApsckw', completed: false, quiz: { questions: [
                 { questionKey: "quiz_ms_l2_q1", optionsKeys: ["quiz_ms_l2_q1_o1", "quiz_ms_l2_q1_o2", "quiz_ms_l2_q1_o3"], correctAnswerIndex: 0 },
                 { questionKey: "quiz_ms_l2_q2", optionsKeys: ["quiz_ms_l2_q2_o1", "quiz_ms_l2_q2_o2", "quiz_ms_l2_q2_o3"], correctAnswerIndex: 2 },
                 { questionKey: "quiz_ms_l2_q3", optionsKeys: ["quiz_ms_l2_q3_o1", "quiz_ms_l2_q3_o2", "quiz_ms_l2_q3_o3"], correctAnswerIndex: 1 }
             ] } },
-            { id: 'ms_l3', titleKey: "lesson_ms_l3_title", descriptionKey: "lesson_ms_l3_desc", videoUrl: 'https://www.youtube.com/embed/cnK3-a-wg4Q', completed: false, quiz: { questions: [
+            { id: 'ms_l3', titleKey: "lesson_ms_l3_title", descriptionKey: "lesson_ms_l3_desc", videoUrl: 'https://www.youtube.com/embed/HuD9wstvO1s', completed: false, quiz: { questions: [
                 { questionKey: "quiz_ms_l3_q1", optionsKeys: ["quiz_ms_l3_q1_o1", "quiz_ms_l3_q1_o2", "quiz_ms_l3_q1_o3"], correctAnswerIndex: 2 },
                 { questionKey: "quiz_ms_l3_q2", optionsKeys: ["quiz_ms_l3_q2_o1", "quiz_ms_l3_q2_o2", "quiz_ms_l3_q2_o3"], correctAnswerIndex: 0 }
             ] } },
-            { id: 'ms_l4', titleKey: "lesson_ms_l4_title", descriptionKey: "lesson_ms_l4_desc", videoUrl: 'https://www.youtube.com/embed/I0v7qJA-tO4', completed: false, quiz: { questions: [
+            { id: 'ms_l4', titleKey: "lesson_ms_l4_title", descriptionKey: "lesson_ms_l4_desc", videoUrl: 'https://www.youtube.com/embed/6hmHLJfOiXs', completed: false, quiz: { questions: [
                 { questionKey: "quiz_ms_l4_q1", optionsKeys: ["quiz_ms_l4_q1_o1", "quiz_ms_l4_q1_o2", "quiz_ms_l4_q1_o3"], correctAnswerIndex: 0 },
                 { questionKey: "quiz_ms_l4_q2", optionsKeys: ["quiz_ms_l4_q2_o1", "quiz_ms_l4_q2_o2", "quiz_ms_l4_q2_o3"], correctAnswerIndex: 1 }
             ] } },
-            { id: 'ms_l5', titleKey: "lesson_ms_l5_title", descriptionKey: "lesson_ms_l5_desc", videoUrl: 'https://www.youtube.com/embed/5-p6wU4-2ko', completed: false, quiz: { questions: [
+            { id: 'ms_l5', titleKey: "lesson_ms_l5_title", descriptionKey: "lesson_ms_l5_desc", videoUrl: 'https://www.youtube.com/embed/44qhTShiiXk', completed: false, quiz: { questions: [
                 { questionKey: "quiz_ms_l5_q1", optionsKeys: ["quiz_ms_l5_q1_o1", "quiz_ms_l5_q1_o2", "quiz_ms_l5_q1_o3"], correctAnswerIndex: 0 }
             ] } },
         ],
