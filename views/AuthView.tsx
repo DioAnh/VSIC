@@ -14,8 +14,8 @@ const AuthView: React.FC<AuthViewProps> = ({ onLogin }) => {
         <div className="flex flex-col items-center justify-center min-h-screen p-4">
             <div className="w-full max-w-md text-center bg-glass-bg backdrop-blur-lg border border-glass-border rounded-3xl shadow-2xl p-8 md:p-12 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent-pink/20">
                 <div className="flex justify-center mb-6">
-                    <div className="p-4 bg-gradient-to-br from-accent-pink to-accent-yellow rounded-full shadow-lg">
-                        <img src="/assets/GENDUCATION.png" alt="Genducation Logo" className="w-16 h-16" />
+                    <div className="p-4 bg-white rounded-full shadow-lg">
+                        <img src="../assets/GENDUCATION.png" alt="Genducation Logo" className="w-16 h-16" />
                     </div>
                 </div>
                     <div className="flex justify-center">
