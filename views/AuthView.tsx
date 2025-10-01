@@ -2,7 +2,6 @@
 import React from 'react';
 import { SparklesIcon } from '../components/Icons';
 import { useLanguage } from '../i18n';
-import YourLogo from '../assets/GENDUCATION.png';
 
 interface AuthViewProps {
     onLogin: () => void;
@@ -16,11 +15,11 @@ const AuthView: React.FC<AuthViewProps> = ({ onLogin }) => {
             <div className="w-full max-w-md text-center bg-glass-bg backdrop-blur-lg border border-glass-border rounded-3xl shadow-2xl p-8 md:p-12 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent-pink/20">
                 <div className="flex justify-center mb-6">
                     <div className="p-4 bg-gradient-to-br from-accent-pink to-accent-yellow rounded-full shadow-lg">
-                        <img src={YourLogo} alt="Genducation Logo" className="w-16 h-16" />
+                        <img src="/assets/GENDUCATION.png" alt="Genducation Logo" className="w-16 h-16" />
                     </div>
                 </div>
                     <div className="flex justify-center">
-                        <h1 className="text-5xl md:text-5xl font-black text-white mb-2 tracking-tighter">GENDUCATION</h1>
+                        <h1 className="text-5xl md:text-5xl font-black text-text-dark mb-2 tracking-tighter">GENDUCATION</h1>
                             </div>
                 <h2 className="text-lg text-text-muted font-medium mb-8">{t('auth.subtitle')}</h2>
                 <p className="text-text-light mb-10">

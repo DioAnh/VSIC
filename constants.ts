@@ -1,6 +1,6 @@
 
 
-import { Level, EducationalLevel, AvatarItem, AvatarBodyShape, AvatarEyes, AvatarMouth, GlossaryTerm, GlossaryCategory, Story, StoryCharacter, Achievement, Tip, Poll } from './types';
+import { Level, EducationalLevel, AvatarItem, AvatarBodyShape, AvatarEyes, AvatarMouth, GlossaryTerm, GlossaryCategory, Story, StoryCharacter, Achievement, Tip, Poll, Challenge } from './types';
 
 export const BODY_COLORS = ['#A7F3D0', '#FDE68A', '#FECACA', '#BFDBFE', '#DDD6FE', '#FBCFE8', '#6EE7B7', '#FBBF24', '#F472B6', '#93C5FD', '#C4B5FD', '#F9A8D4'];
 
@@ -95,32 +95,46 @@ export const getMockLevels = (t: (key: string) => string): Level[] => [
         nameKey: "level_preschool_name",
         unlocked: true,
         lessons: [
-            { id: 'pe_l1', titleKey: "lesson_pe_l1_title", descriptionKey: "lesson_pe_l1_desc", videoUrl: 'https://youtu.be/vJS7nlfLXso?si=OVl9mA3grqjBBntc', completed: false, quiz: { questions: [
-                { questionKey: "quiz_pe_l1_q1", optionsKeys: ["quiz_pe_l1_q1_o1", "quiz_pe_l1_q1_o2", "quiz_pe_l1_q1_o3"], correctAnswerIndex: 1 },
-                { questionKey: "quiz_pe_l1_q2", optionsKeys: ["quiz_pe_l1_q2_o1", "quiz_pe_l1_q2_o2", "quiz_pe_l1_q2_o3"], correctAnswerIndex: 0 },
-                { questionKey: "quiz_pe_l1_q3", optionsKeys: ["quiz_pe_l1_q3_o1", "quiz_pe_l1_q3_o2", "quiz_pe_l1_q3_o3"], correctAnswerIndex: 2 }
+            { id: 'pe_l1_new', titleKey: "lesson_pe_l1_new_title", descriptionKey: "lesson_pe_l1_new_desc", videoUrl: 'https://www.youtube.com/embed/ozfkKTXuQ6g?si=fiu2J22UI6sb9B6V', completed: false, quiz: { questions: [
+                { questionKey: "quiz_pe_l1_new_q1", optionsKeys: ["quiz_pe_l1_new_q1_o1", "quiz_pe_l1_new_q1_o2", "quiz_pe_l1_new_q1_o3", "quiz_pe_l1_new_q1_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l1_new_q2", optionsKeys: ["quiz_pe_l1_new_q2_o1", "quiz_pe_l1_new_q2_o2", "quiz_pe_l1_new_q2_o3", "quiz_pe_l1_new_q2_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l1_new_q3", optionsKeys: ["quiz_pe_l1_new_q3_o1", "quiz_pe_l1_new_q3_o2", "quiz_pe_l1_new_q3_o3", "quiz_pe_l1_new_q3_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l1_new_q4", optionsKeys: ["quiz_pe_l1_new_q4_o1", "quiz_pe_l1_new_q4_o2", "quiz_pe_l1_new_q4_o3", "quiz_pe_l1_new_q4_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l1_new_q5", optionsKeys: ["quiz_pe_l1_new_q5_o1", "quiz_pe_l1_new_q5_o2", "quiz_pe_l1_new_q5_o3", "quiz_pe_l1_new_q5_o4"], correctAnswerIndex: 1 },
             ] } },
-            { id: 'pe_l2', titleKey: "lesson_pe_l2_title", descriptionKey: "lesson_pe_l2_desc", videoUrl: 'https://www.youtube.com/embed/hG933dwK-Is', completed: false, quiz: { questions: [
-                { questionKey: "quiz_pe_l2_q1", optionsKeys: ["quiz_pe_l2_q1_o1", "quiz_pe_l2_q1_o2", "quiz_pe_l2_q1_o3"], correctAnswerIndex: 1 },
-                { questionKey: "quiz_pe_l2_q2", optionsKeys: ["quiz_pe_l2_q2_o1", "quiz_pe_l2_q2_o2", "quiz_pe_l2_q2_o3"], correctAnswerIndex: 2 },
-                { questionKey: "quiz_pe_l2_q3", optionsKeys: ["quiz_pe_l2_q3_o1", "quiz_pe_l2_q3_o2", "quiz_pe_l2_q3_o3"], correctAnswerIndex: 0 }
+            { id: 'pe_l2_new', titleKey: "lesson_pe_l2_new_title", descriptionKey: "lesson_pe_l2_new_desc", videoUrl: 'https://www.youtube.com/embed/edfDGReh-AI?si=pLtVhiWvFihuSmEs', completed: false, quiz: { questions: [
+                { questionKey: "quiz_pe_l2_new_q1", optionsKeys: ["quiz_pe_l2_new_q1_o1", "quiz_pe_l2_new_q1_o2", "quiz_pe_l2_new_q1_o3", "quiz_pe_l2_new_q1_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_pe_l2_new_q2", optionsKeys: ["quiz_pe_l2_new_q2_o1", "quiz_pe_l2_new_q2_o2", "quiz_pe_l2_new_q2_o3", "quiz_pe_l2_new_q2_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l2_new_q3", optionsKeys: ["quiz_pe_l2_new_q3_o1", "quiz_pe_l2_new_q3_o2", "quiz_pe_l2_new_q3_o3", "quiz_pe_l2_new_q3_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l2_new_q4", optionsKeys: ["quiz_pe_l2_new_q4_o1", "quiz_pe_l2_new_q4_o2", "quiz_pe_l2_new_q4_o3", "quiz_pe_l2_new_q4_o4"], correctAnswerIndex: 3 },
+                { questionKey: "quiz_pe_l2_new_q5", optionsKeys: ["quiz_pe_l2_new_q5_o1", "quiz_pe_l2_new_q5_o2", "quiz_pe_l2_new_q5_o3", "quiz_pe_l2_new_q5_o4"], correctAnswerIndex: 3 },
             ] } },
-            { id: 'pe_l3', titleKey: "lesson_pe_l3_title", descriptionKey: "lesson_pe_l3_desc", videoUrl: 'https://www.youtube.com/embed/S-g2Xe7y7I4', completed: false, quiz: { questions: [
-                { questionKey: "quiz_pe_l3_q1", optionsKeys: ["quiz_pe_l3_q1_o1", "quiz_pe_l3_q1_o2", "quiz_pe_l3_q1_o3"], correctAnswerIndex: 1 },
-                { questionKey: "quiz_pe_l3_q2", optionsKeys: ["quiz_pe_l3_q2_o1", "quiz_pe_l3_q2_o2", "quiz_pe_l3_q2_o3"], correctAnswerIndex: 2 }
+            { id: 'pe_l3_new', titleKey: "lesson_pe_l3_new_title", descriptionKey: "lesson_pe_l3_new_desc", videoUrl: 'https://www.youtube.com/embed/2ksRnYYj0r8?si=5YO2dU6zuhMpTRVl', completed: false, quiz: { questions: [
+                { questionKey: "quiz_pe_l3_new_q1", optionsKeys: ["quiz_pe_l3_new_q1_o1", "quiz_pe_l3_new_q1_o2", "quiz_pe_l3_new_q1_o3", "quiz_pe_l3_new_q1_o4"], correctAnswerIndex: 0 },
+                { questionKey: "quiz_pe_l3_new_q2", optionsKeys: ["quiz_pe_l3_new_q2_o1", "quiz_pe_l3_new_q2_o2", "quiz_pe_l3_new_q2_o3", "quiz_pe_l3_new_q2_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l3_new_q3", optionsKeys: ["quiz_pe_l3_new_q3_o1", "quiz_pe_l3_new_q3_o2", "quiz_pe_l3_new_q3_o3", "quiz_pe_l3_new_q3_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l3_new_q4", optionsKeys: ["quiz_pe_l3_new_q4_o1", "quiz_pe_l3_new_q4_o2", "quiz_pe_l3_new_q4_o3", "quiz_pe_l3_new_q4_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_pe_l3_new_q5", optionsKeys: ["quiz_pe_l3_new_q5_o1", "quiz_pe_l3_new_q5_o2", "quiz_pe_l3_new_q5_o3", "quiz_pe_l3_new_q5_o4"], correctAnswerIndex: 1 },
             ] } },
-            { id: 'pe_l4', titleKey: "lesson_pe_l4_title", descriptionKey: "lesson_pe_l4_desc", videoUrl: 'https://www.youtube.com/embed/rI0_a-T4mI8', completed: false, quiz: { questions: [
-                { questionKey: "quiz_pe_l4_q1", optionsKeys: ["quiz_pe_l4_q1_o1", "quiz_pe_l4_q1_o2", "quiz_pe_l4_q1_o3"], correctAnswerIndex: 2 },
-                { questionKey: "quiz_pe_l4_q2", optionsKeys: ["quiz_pe_l4_q2_o1", "quiz_pe_l4_q2_o2", "quiz_pe_l4_q2_o3"], correctAnswerIndex: 0 }
+            { id: 'pe_l4_new', titleKey: "lesson_pe_l4_new_title", descriptionKey: "lesson_pe_l4_new_desc", videoUrl: 'https://www.youtube.com/embed/6hmHLJfOiXs?si=hU6FX3bRLAm9ZJ-A', completed: false, quiz: { questions: [
+                { questionKey: "quiz_pe_l4_new_q1", optionsKeys: ["quiz_pe_l4_new_q1_o1", "quiz_pe_l4_new_q1_o2", "quiz_pe_l4_new_q1_o3", "quiz_pe_l4_new_q1_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l4_new_q2", optionsKeys: ["quiz_pe_l4_new_q2_o1", "quiz_pe_l4_new_q2_o2", "quiz_pe_l4_new_q2_o3", "quiz_pe_l4_new_q2_o4"], correctAnswerIndex: 3 },
+                { questionKey: "quiz_pe_l4_new_q3", optionsKeys: ["quiz_pe_l4_new_q3_o1", "quiz_pe_l4_new_q3_o2", "quiz_pe_l4_new_q3_o3", "quiz_pe_l4_new_q3_o4"], correctAnswerIndex: 0 },
+                { questionKey: "quiz_pe_l4_new_q4", optionsKeys: ["quiz_pe_l4_new_q4_o1", "quiz_pe_l4_new_q4_o2", "quiz_pe_l4_new_q4_o3", "quiz_pe_l4_new_q4_o4"], correctAnswerIndex: 0 },
+                { questionKey: "quiz_pe_l4_new_q5", optionsKeys: ["quiz_pe_l4_new_q5_o1", "quiz_pe_l4_new_q5_o2", "quiz_pe_l4_new_q5_o3", "quiz_pe_l4_new_q5_o4"], correctAnswerIndex: 3 },
             ] } },
-            { id: 'pe_l5', titleKey: "lesson_pe_l5_title", descriptionKey: "lesson_pe_l5_desc", videoUrl: 'https://www.youtube.com/embed/uh82k4gH7oM', completed: false, quiz: { questions: [
-                { questionKey: "quiz_pe_l5_q1", optionsKeys: ["quiz_pe_l5_q1_o1", "quiz_pe_l5_q1_o2", "quiz_pe_l5_q1_o3"], correctAnswerIndex: 1 }
+            { id: 'pe_l5_new', titleKey: "lesson_pe_l5_new_title", descriptionKey: "lesson_pe_l5_new_desc", videoUrl: 'https://www.youtube.com/embed/iDYcmrznaXQ?si=4gjEb07BwWlVMJUD', completed: false, quiz: { questions: [
+                { questionKey: "quiz_pe_l5_new_q1", optionsKeys: ["quiz_pe_l5_new_q1_o1", "quiz_pe_l5_new_q1_o2", "quiz_pe_l5_new_q1_o3", "quiz_pe_l5_new_q1_o4"], correctAnswerIndex: 2 },
+                { questionKey: "quiz_pe_l5_new_q2", optionsKeys: ["quiz_pe_l5_new_q2_o1", "quiz_pe_l5_new_q2_o2", "quiz_pe_l5_new_q2_o3", "quiz_pe_l5_new_q2_o4"], correctAnswerIndex: 3 },
+                { questionKey: "quiz_pe_l5_new_q3", optionsKeys: ["quiz_pe_l5_new_q3_o1", "quiz_pe_l5_new_q3_o2", "quiz_pe_l5_new_q3_o3", "quiz_pe_l5_new_q3_o4"], correctAnswerIndex: 1 },
+                { questionKey: "quiz_pe_l5_new_q4", optionsKeys: ["quiz_pe_l5_new_q4_o1", "quiz_pe_l5_new_q4_o2", "quiz_pe_l5_new_q4_o3", "quiz_pe_l5_new_q4_o4"], correctAnswerIndex: 0 },
+                { questionKey: "quiz_pe_l5_new_q5", optionsKeys: ["quiz_pe_l5_new_q5_o1", "quiz_pe_l5_new_q5_o2", "quiz_pe_l5_new_q5_o3", "quiz_pe_l5_new_q5_o4"], correctAnswerIndex: 0 },
             ] } },
         ],
         finalAssessment: { questions: [
-            { questionKey: "quiz_pe_final_q1", optionsKeys: ["quiz_pe_final_q1_o1", "quiz_pe_final_q1_o2", "quiz_pe_final_q1_o3"], correctAnswerIndex: 0 },
-            { questionKey: "quiz_pe_final_q2", optionsKeys: ["quiz_pe_final_q2_o1", "quiz_pe_final_q2_o2", "quiz_pe_final_q2_o3"], correctAnswerIndex: 2 },
-            { questionKey: "quiz_pe_final_q3", optionsKeys: ["quiz_pe_final_q3_o1", "quiz_pe_final_q3_o2", "quiz_pe_final_q3_o3"], correctAnswerIndex: 0 }
+            { questionKey: "quiz_pe_final_new_q1", optionsKeys: ["quiz_pe_final_new_q1_o1", "quiz_pe_final_new_q1_o2", "quiz_pe_final_new_q1_o3"], correctAnswerIndex: 0 },
+            { questionKey: "quiz_pe_final_new_q2", optionsKeys: ["quiz_pe_final_new_q2_o1", "quiz_pe_final_new_q2_o2", "quiz_pe_final_new_q2_o3"], correctAnswerIndex: 1 },
+            { questionKey: "quiz_pe_final_new_q3", optionsKeys: ["quiz_pe_final_new_q3_o1", "quiz_pe_final_new_q3_o2", "quiz_pe_final_new_q3_o3"], correctAnswerIndex: 1 }
         ] },
     },
     {
@@ -207,62 +221,107 @@ export const getMockLevels = (t: (key: string) => string): Level[] => [
 ];
 
 export const GLOSSARY_CATEGORIES: { id: GlossaryCategory, nameKey: string }[] = [
-    { id: GlossaryCategory.Anatomy, nameKey: 'glossary.category_anatomy' },
-    { id: GlossaryCategory.Feelings, nameKey: 'glossary.category_feelings' },
-    { id: GlossaryCategory.LGBTQ, nameKey: 'glossary.category_lgbtq' },
-    { id: GlossaryCategory.Relationships, nameKey: 'glossary.category_relationships' },
-    { id: GlossaryCategory.Safety, nameKey: 'glossary.category_safety' },
+    { id: GlossaryCategory.Foundations, nameKey: 'glossary.category_foundations' },
+    { id: GlossaryCategory.RespectEquality, nameKey: 'glossary.category_respect_equality' },
+    { id: GlossaryCategory.RolesStereotypes, nameKey: 'glossary.category_roles_stereotypes' },
+    { id: GlossaryCategory.FeelingsSafety, nameKey: 'glossary.category_feelings_safety' },
+    { id: GlossaryCategory.IdentityCommunity, nameKey: 'glossary.category_identity_community' },
+];
+
+export const GLOSSARY_TERMS: GlossaryTerm[] = [
+    // Basic Concepts (Foundations)
+    { id: 'term_gender', termKey: 'glossary.term_gender', definitionKey: 'glossary.def_gender', exampleKey: 'glossary.ex_gender', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_sex', termKey: 'glossary.term_sex', definitionKey: 'glossary.def_sex', exampleKey: 'glossary.ex_sex', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_gender_identity', termKey: 'glossary.term_gender_identity', definitionKey: 'glossary.def_gender_identity', exampleKey: 'glossary.ex_gender_identity', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_gender_expression', termKey: 'glossary.term_gender_expression', definitionKey: 'glossary.def_gender_expression', exampleKey: 'glossary.ex_gender_expression', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_biological_sex', termKey: 'glossary.term_biological_sex', definitionKey: 'glossary.def_biological_sex', exampleKey: 'glossary.ex_biological_sex', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_non_binary', termKey: 'glossary.term_non_binary', definitionKey: 'glossary.def_non_binary', exampleKey: 'glossary.ex_non_binary', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_transgender', termKey: 'glossary.term_transgender', definitionKey: 'glossary.def_transgender', exampleKey: 'glossary.ex_transgender', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_cisgender', termKey: 'glossary.term_cisgender', definitionKey: 'glossary.def_cisgender', exampleKey: 'glossary.ex_cisgender', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_intersex', termKey: 'glossary.term_intersex', definitionKey: 'glossary.def_intersex', exampleKey: 'glossary.ex_intersex', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    { id: 'term_agender', termKey: 'glossary.term_agender', definitionKey: 'glossary.def_agender', exampleKey: 'glossary.ex_agender', category: GlossaryCategory.Foundations, relatedLessonIds: [] },
+    // Respect & Equality
+    { id: 'term_respect', termKey: 'glossary.term_respect', definitionKey: 'glossary.def_respect', exampleKey: 'glossary.ex_respect', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_equality', termKey: 'glossary.term_equality', definitionKey: 'glossary.def_equality', exampleKey: 'glossary.ex_equality', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_equity', termKey: 'glossary.term_equity', definitionKey: 'glossary.def_equity', exampleKey: 'glossary.ex_equity', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_fairness', termKey: 'glossary.term_fairness', definitionKey: 'glossary.def_fairness', exampleKey: 'glossary.ex_fairness', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_inclusion', termKey: 'glossary.term_inclusion', definitionKey: 'glossary.def_inclusion', exampleKey: 'glossary.ex_inclusion', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_empathy', termKey: 'glossary.term_empathy', definitionKey: 'glossary.def_empathy', exampleKey: 'glossary.ex_empathy', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_kindness', termKey: 'glossary.term_kindness', definitionKey: 'glossary.def_kindness', exampleKey: 'glossary.ex_kindness', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_respectful_language', termKey: 'glossary.term_respectful_language', definitionKey: 'glossary.def_respectful_language', exampleKey: 'glossary.ex_respectful_language', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_diversity', termKey: 'glossary.term_diversity', definitionKey: 'glossary.def_diversity', exampleKey: 'glossary.ex_diversity', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    { id: 'term_stereotype', termKey: 'glossary.term_stereotype', definitionKey: 'glossary.def_stereotype', exampleKey: 'glossary.ex_stereotype', category: GlossaryCategory.RespectEquality, relatedLessonIds: [] },
+    // Roles & Stereotypes
+    { id: 'term_gender_roles', termKey: 'glossary.term_gender_roles', definitionKey: 'glossary.def_gender_roles', exampleKey: 'glossary.ex_gender_roles', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_chores', termKey: 'glossary.term_chores', definitionKey: 'glossary.def_chores', exampleKey: 'glossary.ex_chores', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_caregiving', termKey: 'glossary.term_caregiving', definitionKey: 'glossary.def_caregiving', exampleKey: 'glossary.ex_caregiving', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_leadership', termKey: 'glossary.term_leadership', definitionKey: 'glossary.def_leadership', exampleKey: 'glossary.ex_leadership', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_friendship', termKey: 'glossary.term_friendship', definitionKey: 'glossary.def_friendship', exampleKey: 'glossary.ex_friendship', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_teamwork', termKey: 'glossary.term_teamwork', definitionKey: 'glossary.def_teamwork', exampleKey: 'glossary.ex_teamwork', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_confidence', termKey: 'glossary.term_confidence', definitionKey: 'glossary.def_confidence', exampleKey: 'glossary.ex_confidence', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_courage', termKey: 'glossary.term_courage', definitionKey: 'glossary.def_courage', exampleKey: 'glossary.ex_courage', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_role_model', termKey: 'glossary.term_role_model', definitionKey: 'glossary.def_role_model', exampleKey: 'glossary.ex_role_model', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    { id: 'term_dream_job', termKey: 'glossary.term_dream_job', definitionKey: 'glossary.def_dream_job', exampleKey: 'glossary.ex_dream_job', category: GlossaryCategory.RolesStereotypes, relatedLessonIds: [] },
+    // Feelings & Safety
+    { id: 'term_emotions', termKey: 'glossary.term_emotions', definitionKey: 'glossary.def_emotions', exampleKey: 'glossary.ex_emotions', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_expression', termKey: 'glossary.term_expression', definitionKey: 'glossary.def_expression', exampleKey: 'glossary.ex_expression', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_consent', termKey: 'glossary.term_consent', definitionKey: 'glossary.def_consent', exampleKey: 'glossary.ex_consent', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_boundaries', termKey: 'glossary.term_boundaries', definitionKey: 'glossary.def_boundaries', exampleKey: 'glossary.ex_boundaries', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_bullying', termKey: 'glossary.term_bullying', definitionKey: 'glossary.def_bullying', exampleKey: 'glossary.ex_bullying', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_respecting_privacy', termKey: 'glossary.term_respecting_privacy', definitionKey: 'glossary.def_respecting_privacy', exampleKey: 'glossary.ex_respecting_privacy', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_safety', termKey: 'glossary.term_safety', definitionKey: 'glossary.def_safety', exampleKey: 'glossary.ex_safety', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_trust', termKey: 'glossary.term_trust', definitionKey: 'glossary.def_trust', exampleKey: 'glossary.ex_trust', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_support', termKey: 'glossary.term_support', definitionKey: 'glossary.def_support', exampleKey: 'glossary.ex_support', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    { id: 'term_voice', termKey: 'glossary.term_voice', definitionKey: 'glossary.def_voice', exampleKey: 'glossary.ex_voice', category: GlossaryCategory.FeelingsSafety, relatedLessonIds: [] },
+    // Identity & Community
+    { id: 'term_individuality', termKey: 'glossary.term_individuality', definitionKey: 'glossary.def_individuality', exampleKey: 'glossary.ex_individuality', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_uniqueness', termKey: 'glossary.term_uniqueness', definitionKey: 'glossary.def_uniqueness', exampleKey: 'glossary.ex_uniqueness', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_community', termKey: 'glossary.term_community', definitionKey: 'glossary.def_community', exampleKey: 'glossary.ex_community', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_belonging', termKey: 'glossary.term_belonging', definitionKey: 'glossary.def_belonging', exampleKey: 'glossary.ex_belonging', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_family_roles', termKey: 'glossary.term_family_roles', definitionKey: 'glossary.def_family_roles', exampleKey: 'glossary.ex_family_roles', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_cultural_norms', termKey: 'glossary.term_cultural_norms', definitionKey: 'glossary.def_cultural_norms', exampleKey: 'glossary.ex_cultural_norms', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_role_reversal', termKey: 'glossary.term_role_reversal', definitionKey: 'glossary.def_role_reversal', exampleKey: 'glossary.ex_role_reversal', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_choice', termKey: 'glossary.term_choice', definitionKey: 'glossary.def_choice', exampleKey: 'glossary.ex_choice', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_self_expression', termKey: 'glossary.term_self_expression', definitionKey: 'glossary.def_self_expression', exampleKey: 'glossary.ex_self_expression', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
+    { id: 'term_respect_for_all', termKey: 'glossary.term_respect_for_all', definitionKey: 'glossary.def_respect_for_all', exampleKey: 'glossary.ex_respect_for_all', category: GlossaryCategory.IdentityCommunity, relatedLessonIds: [] },
 ];
 
 
-export const GLOSSARY_TERMS: GlossaryTerm[] = [
+export const DAILY_CHALLENGES: Challenge[] = [
     {
-        id: 'term_consent',
-        termKey: 'glossary.term_consent',
-        definitionKey: 'glossary.def_consent',
-        exampleKey: 'glossary.ex_consent',
-        category: GlossaryCategory.Safety,
-        relatedLessonIds: ['ms_l2'],
+        id: 'challenge_1',
+        questionKey: 'challenge.q1_question',
+        optionsKeys: ['challenge.q1_op1', 'challenge.q1_op2', 'challenge.q1_op3'],
+        correctAnswerIndex: 1,
+        explanationKey: 'challenge.q1_explanation',
     },
     {
-        id: 'term_puberty',
-        termKey: 'glossary.term_puberty',
-        definitionKey: 'glossary.def_puberty',
-        exampleKey: 'glossary.ex_puberty',
-        category: GlossaryCategory.Anatomy,
-        relatedLessonIds: ['ms_l1'],
+        id: 'challenge_2',
+        questionKey: 'challenge.q2_question',
+        optionsKeys: ['challenge.q2_op1', 'challenge.q2_op2', 'challenge.q2_op3'],
+        correctAnswerIndex: 2,
+        explanationKey: 'challenge.q2_explanation',
     },
     {
-        id: 'term_boundaries',
-        termKey: 'glossary.term_boundaries',
-        definitionKey: 'glossary.def_boundaries',
-        exampleKey: 'glossary.ex_boundaries',
-        category: GlossaryCategory.Relationships,
-        relatedLessonIds: ['pe_l1', 'hs_l1'],
+        id: 'challenge_3',
+        questionKey: 'challenge.q3_question',
+        optionsKeys: ['challenge.q3_op1', 'challenge.q3_op2', 'challenge.q3_op3'],
+        correctAnswerIndex: 0,
+        explanationKey: 'challenge.q3_explanation',
     },
     {
-        id: 'term_lgbtq',
-        termKey: 'glossary.term_lgbtq',
-        definitionKey: 'glossary.def_lgbtq',
-        exampleKey: 'glossary.ex_lgbtq',
-        category: GlossaryCategory.LGBTQ,
-        relatedLessonIds: ['hs_l4'],
-    },
-    {
-        id: 'term_empathy',
-        termKey: 'glossary.term_empathy',
-        definitionKey: 'glossary.def_empathy',
-        exampleKey: 'glossary.ex_empathy',
-        category: GlossaryCategory.Feelings,
-        relatedLessonIds: ['hs_l1', 'pe_l3'],
+        id: 'challenge_4',
+        questionKey: 'challenge.q4_question',
+        optionsKeys: ['challenge.q4_op1', 'challenge.q4_op2', 'challenge.q4_op3'],
+        correctAnswerIndex: 1,
+        explanationKey: 'challenge.q4_explanation',
     },
      {
-        id: 'term_sti',
-        termKey: 'glossary.term_sti',
-        definitionKey: 'glossary.def_sti',
-        exampleKey: 'glossary.ex_sti',
-        category: GlossaryCategory.Safety,
-        relatedLessonIds: ['hs_l2'],
+        id: 'challenge_5',
+        questionKey: 'challenge.q5_question',
+        optionsKeys: ['challenge.q5_op1', 'challenge.q5_op2', 'challenge.q5_op3'],
+        correctAnswerIndex: 2,
+        explanationKey: 'challenge.q5_explanation',
     },
 ];
 

@@ -28,7 +28,7 @@ const CertificateView: React.FC<CertificateViewProps> = ({ levelNameKey, userNam
                     }
                     #certificate-section, #certificate-section * {
                         visibility: visible;
-                        color: #1D2B64 !important;
+                        color: #5D4037 !important;
                     }
                     #certificate-section {
                         position: absolute;
@@ -37,7 +37,7 @@ const CertificateView: React.FC<CertificateViewProps> = ({ levelNameKey, userNam
                         width: 100%;
                         height: 100%;
                         background: white !important;
-                        border: 10px solid #FFD872 !important;
+                        border: 10px solid #f4baa5 !important;
                     }
                      .no-print {
                         display: none;
@@ -50,7 +50,7 @@ const CertificateView: React.FC<CertificateViewProps> = ({ levelNameKey, userNam
 
                 <div className="relative z-10">
                     <CertificateIcon className="w-20 h-20 text-green-400 mx-auto mb-4" />
-                    <h1 className="text-4xl sm:text-5xl font-black text-white mb-2">{t('certificate.title')}</h1>
+                    <h1 className="text-4xl sm:text-5xl font-black text-text-dark mb-2">{t('certificate.title')}</h1>
                     <p className="text-lg text-text-muted mb-8">{t('certificate.presented_to')}</p>
 
                     <p className="text-3xl sm:text-4xl font-bold text-accent-yellow underline decoration-wavy decoration-accent-pink underline-offset-8 mb-8">
@@ -58,7 +58,7 @@ const CertificateView: React.FC<CertificateViewProps> = ({ levelNameKey, userNam
                     </p>
 
                     <p className="text-lg text-text-muted mb-4">{t('certificate.for_completing')}</p>
-                    <p className="text-2xl font-bold text-white mb-10">{t(levelNameKey)}</p>
+                    <p className="text-2xl font-bold text-text-dark mb-10">{t(levelNameKey)}</p>
 
                     <div className="flex justify-between items-center text-sm text-text-muted">
                         <div className="text-left">

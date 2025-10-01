@@ -77,13 +77,13 @@ const Avatar: React.FC<AvatarProps> = ({ avatar, enableTapAnimation = false }) =
                  {effectItem?.type === 'effect' && (
                      <g transform="translate(80, 150)">
                         {effectItem.id === 'effect_hs1' && <path d={effectItem.path} fill="rgba(255, 216, 114, 0.2)" />}
-                        {effectItem.id === 'effect_pe1' && <path d={effectItem.path} fill="#FFD872" className="animate-spin-sparkle" />}
+                        {effectItem.id === 'effect_pe1' && <path d={effectItem.path} fill="#F4BAA5" className="animate-spin-sparkle" />}
                      </g>
                  )}
                  
                  <g style={{ transition: 'transform 0.5s ease-in-out', transformOrigin: 'bottom center' }}>
                     {/* Layer 1: Behind body (e.g., capes, backpacks) */}
-                    {outfitItem?.id === 'outfit_ms1' && <path d="M 60,120 C 20,200 140,200 100,120 Z" fill="#E53E3E" stroke="#C53030" strokeWidth="2" />}
+                    {outfitItem?.id === 'outfit_ms1' && <path d="M 60,120 C 20,200 140,200 100,120 Z" fill="#36c9d1" stroke="#2b9fa5" strokeWidth="2" />}
                     {accessoryItem?.id === 'accessory_ms2' && <path d={accessoryItem.path} fill={accessoryItem.color} />}
                     
                     {/* Layer 2: Body */}
@@ -99,10 +99,10 @@ const Avatar: React.FC<AvatarProps> = ({ avatar, enableTapAnimation = false }) =
 
                     {/* Layer 5: Face details */}
                     <g transform="translate(80, 130)">
-                        <path d={eyes.path} stroke="#1D2B64" strokeWidth={eyes.id === 'eyes_shades' ? '3' : '2'} fill={eyes.id === 'eyes_shades' ? '#1D2B64' : 'none'} strokeLinecap="round" strokeLinejoin="round" />
+                        <path d={eyes.path} stroke="#5D4037" strokeWidth={eyes.id === 'eyes_shades' ? '3' : '2'} fill={eyes.id === 'eyes_shades' ? '#5D4037' : 'none'} strokeLinecap="round" strokeLinejoin="round" />
                     </g>
                      <g transform="translate(80, 152)">
-                        <path d={mouth.path} stroke="#1D2B64" strokeWidth="2" fill={mouth.id === 'mouth_tongue' ? '#F472B6' : 'none'} strokeLinecap="round" strokeLinejoin="round" />
+                        <path d={mouth.path} stroke="#5D4037" strokeWidth="2" fill={mouth.id === 'mouth_tongue' ? '#F472B6' : 'none'} strokeLinecap="round" strokeLinejoin="round" />
                     </g>
                     
                      {/* Layer 6: Face accessories (e.g., glasses, scarves) */}

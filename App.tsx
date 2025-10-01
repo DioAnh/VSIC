@@ -10,10 +10,15 @@ import CertificateView from './views/CertificateView';
 import AchievementsView from './views/AchievementsView';
 import GlossaryView from './views/GlossaryView';
 import StoryView from './views/StoryView';
+import ForumView from './views/ForumView';
+import ChallengeView from './views/ChallengeView';
+import BottomNavBar from './components/BottomNavBar';
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import type { DragEndEvent } from '@dnd-kit/core';
 import Confetti from 'react-confetti';
 import { useLanguage } from './i18n';
+
+type Tab = 'home' | 'profile' | 'forum' | 'glossary' | 'challenge';
 
 const LanguageSwitcher: React.FC = () => {
     const { language, setLanguage } = useLanguage();
@@ -25,7 +30,7 @@ const LanguageSwitcher: React.FC = () => {
     return (
         <button
             onClick={toggleLanguage}
-            className="fixed top-4 right-4 z-50 bg-glass-bg backdrop-blur-lg border border-glass-border text-white font-bold py-2 px-4 rounded-full text-sm shadow-lg hover:bg-white/20 transition-all"
+            className="fixed top-4 right-4 z-50 bg-glass-bg backdrop-blur-lg border border-glass-border text-text-dark font-bold py-2 px-4 rounded-full text-sm shadow-lg hover:bg-white/20 transition-all"
         >
             {language.toUpperCase()}
         </button>
@@ -41,10 +46,10 @@ const App: React.FC = () => {
     const [showCertificate, setShowCertificate] = useState<{ levelNameKey: string; userName: string; } | null>(null);
     const [lastReward, setLastReward] = useState<AvatarItem | null>(null);
     const [showAchievements, setShowAchievements] = useState(false);
-    const [showGlossary, setShowGlossary] = useState(false);
     const [initialGlossarySearch, setInitialGlossarySearch] = useState('');
     const [activeStory, setActiveStory] = useState<Story | null>(null);
     const [showConfetti, setShowConfetti] = useState(false);
+    const [activeTab, setActiveTab] = useState<Tab>('home');
 
     useEffect(() => {
         setLevels(getMockLevels(t));
@@ -123,7 +128,7 @@ const App: React.FC = () => {
                     ...prevUser, 
                     progress: updatedProgress, 
                     avatar: { ...prevUser.avatar, outfit: updatedOutfit },
-                    points: prevUser.points + 50 
+                    points: prevUser.points + 20 
                 };
                 
                 localStorage.setItem('genducation_user', JSON.stringify(updatedUser));
@@ -168,6 +173,18 @@ const App: React.FC = () => {
         }
     }, [user, levels]);
     
+    const handleChallengeComplete = useCallback(() => {
+        setUser(prevUser => {
+            if (!prevUser) return null;
+            const updatedUser = {
+                ...prevUser,
+                points: prevUser.points + 25
+            };
+            localStorage.setItem('genducation_user', JSON.stringify(updatedUser));
+            return updatedUser;
+        });
+    }, []);
+
     const handleStartStory = useCallback((story: Story) => {
         setActiveStory(story);
     }, []);
@@ -196,13 +213,19 @@ const App: React.FC = () => {
     
     const handleShowGlossary = (searchTerm: string = '') => {
         setInitialGlossarySearch(searchTerm);
-        setShowGlossary(true);
+        setActiveTab('glossary');
     };
-
-    const handleCloseGlossary = () => {
-        setShowGlossary(false);
-        setInitialGlossarySearch(''); // Reset on close
-    };
+    
+    const handleTabChange = (tab: Tab) => {
+        if(tab !== 'glossary') {
+            setInitialGlossarySearch('');
+        }
+        if (tab === 'profile') {
+            setActiveTab('home');
+            return;
+        }
+        setActiveTab(tab);
+    }
 
     const sensors = useSensors(
         useSensor(PointerSensor),
@@ -221,7 +244,6 @@ const App: React.FC = () => {
             setUser(prevUser => {
                 if (!prevUser) return null;
                 
-                // This logic equips one item per type (e.g., one outfit, one accessory), replacing any existing one.
                 const newOutfit = prevUser.avatar.outfit.filter(item => item.type !== activeItem.type);
                 newOutfit.push(activeItem);
                 
@@ -236,9 +258,6 @@ const App: React.FC = () => {
     const renderContent = () => {
         if (activeStory && user) {
             return <StoryView story={activeStory} user={user} onProgress={handleStoryProgress} onClose={handleCloseStory} />;
-        }
-        if (showGlossary) {
-            return <GlossaryView levels={levels} onBack={handleCloseGlossary} initialSearch={initialGlossarySearch} />;
         }
         if (showAchievements && user) {
             return <AchievementsView user={user} levels={levels} onBack={() => setShowAchievements(false)} />;
@@ -259,23 +278,51 @@ const App: React.FC = () => {
                             user={user!} />;
             case GameState.Learning:
                 if (user) {
-                     return (
-                        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-                            <LearningView
-                                user={user}
-                                levels={levels}
-                                onLessonClick={handleLessonClick}
-                                activeLesson={activeLesson}
-                                onQuizComplete={handleQuizComplete}
-                                onFinalTestComplete={handleFinalTestComplete}
-                                lastReward={lastReward}
-                                clearLastReward={() => setLastReward(null)}
-                                onShowAchievements={() => setShowAchievements(true)}
-                                onShowGlossary={handleShowGlossary}
-                                onStartStory={handleStartStory}
-                            />
-                        </DndContext>
-                    );
+                     switch(activeTab) {
+                        case 'home':
+                        case 'profile':
+                             return (
+                                <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+                                    <LearningView
+                                        user={user}
+                                        levels={levels}
+                                        onLessonClick={handleLessonClick}
+                                        activeLesson={activeLesson}
+                                        onQuizComplete={handleQuizComplete}
+                                        onFinalTestComplete={handleFinalTestComplete}
+                                        lastReward={lastReward}
+                                        clearLastReward={() => setLastReward(null)}
+                                        onShowAchievements={() => setShowAchievements(true)}
+                                        onShowGlossary={handleShowGlossary}
+                                        onStartStory={handleStartStory}
+                                    />
+                                </DndContext>
+                            );
+                        case 'glossary':
+                            return <GlossaryView levels={levels} onBack={() => setActiveTab('home')} initialSearch={initialGlossarySearch} />;
+                        case 'forum':
+                            return <ForumView />;
+                        case 'challenge':
+                            return <ChallengeView onChallengeComplete={handleChallengeComplete} />;
+                        default:
+                            return (
+                                <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+                                    <LearningView
+                                        user={user}
+                                        levels={levels}
+                                        onLessonClick={handleLessonClick}
+                                        activeLesson={activeLesson}
+                                        onQuizComplete={handleQuizComplete}
+                                        onFinalTestComplete={handleFinalTestComplete}
+                                        lastReward={lastReward}
+                                        clearLastReward={() => setLastReward(null)}
+                                        onShowAchievements={() => setShowAchievements(true)}
+                                        onShowGlossary={handleShowGlossary}
+                                        onStartStory={handleStartStory}
+                                    />
+                                </DndContext>
+                            );
+                     }
                 }
                 return <AuthView onLogin={handleLogin} />; // fallback
             default:
@@ -284,14 +331,15 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen font-sans text-text-light bg-gradient-to-br from-primary-dark to-primary-light relative overflow-hidden">
+        <div className="min-h-screen font-sans text-text-dark bg-gradient-to-br from-primary-dark to-primary-light relative overflow-hidden">
             <LanguageSwitcher />
             <div className="absolute top-0 left-0 w-72 h-72 bg-accent-pink/50 rounded-full filter blur-3xl opacity-50 animate-blob"></div>
             <div className="absolute top-0 right-0 w-72 h-72 bg-accent-yellow/50 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
             <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-primary-light/50 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
-            <div className="relative z-10">
+            <main className={`relative z-10 ${gameState === GameState.Learning ? 'pb-20 md:pb-0' : ''}`}>
                  {renderContent()}
-            </div>
+            </main>
+            {gameState === GameState.Learning && <BottomNavBar activeTab={activeTab} onTabChange={handleTabChange} />}
             {showConfetti && <Confetti recycle={false} numberOfPieces={400} />}
              <style>{`
                 @keyframes blob {

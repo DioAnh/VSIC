@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Quiz } from '../types';
 import { useLanguage } from '../i18n';
@@ -83,7 +84,7 @@ const QuizView: React.FC<QuizViewProps> = ({ quiz, onComplete }) => {
         const score = calculateScore();
         return (
             <div className="text-center p-8 text-text-light">
-                <h3 className="text-2xl font-bold mb-4 text-white">{t('quiz.complete_title')}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-text-dark">{t('quiz.complete_title')}</h3>
                 <p className="text-5xl font-black mb-2" style={{color: score === 100 ? '#6BCB77' : '#FF6B6B'}}>{score}%</p>
                 <p className="text-text-muted mb-6">{score === 100 ? t('quiz.passed') : t('quiz.failed')}</p>
                 <button onClick={() => onComplete(score)} className="bg-gradient-to-r from-accent-pink to-accent-yellow text-white font-bold py-2 px-8 rounded-lg shadow-lg transform hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-pink/40 transition-all duration-300 ease-in-out">
@@ -97,48 +98,60 @@ const QuizView: React.FC<QuizViewProps> = ({ quiz, onComplete }) => {
     const selectedAnswerForCurrent = selectedAnswers[currentQuestionIndex];
 
     return (
-        <div className="relative">
+        <div className="relative min-h-[350px]">
             {feedback === 'correct' && <CorrectAnswerAnimation />}
-            <div className="mb-4">
-                <p className="text-sm text-text-muted">{t('quiz.question_progress', { current: currentQuestionIndex + 1, total: quiz.questions.length })}</p>
-                <h3 className="text-xl font-semibold mt-1 text-white">{t(currentQuestion.questionKey)}</h3>
-            </div>
-            <div className="space-y-3 mb-6">
-                {currentQuestion.optionsKeys.map((optionKey, index) => {
-                    let buttonClass = 'w-full text-left p-4 rounded-lg border-2 transition-all duration-300 ease-in-out text-text-light transform hover:-translate-y-1';
-                    const isThisTheCorrectAnswer = index === currentQuestion.correctAnswerIndex;
 
-                    if (feedback) {
-                        if (isThisTheCorrectAnswer) {
-                            buttonClass += ' border-green-500 bg-green-500/20 animate-pulse';
-                        } else if (selectedAnswerForCurrent === index) {
-                            buttonClass += ' border-red-500 bg-red-500/20';
-                        } else {
-                            buttonClass += ' border-glass-border bg-white/5 opacity-60';
+            <div className={`transition-opacity duration-300 ${feedback === 'correct' ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                <div className="animate-fade-in-quiz">
+                    <div className="mb-4">
+                        <p className="text-sm text-text-muted">{t('quiz.question_progress', { current: currentQuestionIndex + 1, total: quiz.questions.length })}</p>
+                        <h3 className="text-xl font-semibold mt-1 text-text-dark">{t(currentQuestion.questionKey)}</h3>
+                    </div>
+                    <div className="space-y-3 mb-6">
+                        {currentQuestion.optionsKeys.map((optionKey, index) => {
+                            let buttonClass = 'w-full text-left p-4 rounded-lg border-2 transition-all duration-300 ease-in-out text-text-light transform hover:-translate-y-1';
+                            const isThisTheCorrectAnswer = index === currentQuestion.correctAnswerIndex;
+
+                            if (feedback) {
+                                if (isThisTheCorrectAnswer) {
+                                    buttonClass += ' border-green-500 bg-green-500/20 animate-pulse';
+                                } else if (selectedAnswerForCurrent === index) {
+                                    buttonClass += ' border-red-500 bg-red-500/20';
+                                } else {
+                                    buttonClass += ' border-glass-border bg-white/5 opacity-60';
+                                }
+                            } else {
+                                buttonClass += ' border-glass-border bg-white/5 hover:bg-white/10 hover:border-white/20';
+                            }
+
+                            return (
+                                <button
+                                    key={index}
+                                    onClick={() => handleAnswerSelect(index)}
+                                    disabled={!!feedback}
+                                    className={buttonClass}
+                                >
+                                    {t(optionKey)}
+                                </button>
+                            );
+                        })}
+                    </div>
+                    <button
+                        onClick={handleNext}
+                        disabled={selectedAnswerForCurrent === null || feedback === 'correct'}
+                        className="w-full bg-gradient-to-r from-accent-pink to-accent-yellow text-white font-bold py-3 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-pink/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        {currentQuestionIndex < quiz.questions.length - 1 ? t('quiz.next') : t('quiz.finish')}
+                    </button>
+                     <style>{`
+                        @keyframes fade-in-quiz {
+                            from { opacity: 0; }
+                            to { opacity: 1; }
                         }
-                    } else {
-                         buttonClass += ' border-glass-border bg-white/5 hover:bg-white/10 hover:border-white/20';
-                    }
-
-                    return (
-                        <button
-                            key={index}
-                            onClick={() => handleAnswerSelect(index)}
-                            disabled={!!feedback}
-                            className={buttonClass}
-                        >
-                            {t(optionKey)}
-                        </button>
-                    );
-                })}
+                        .animate-fade-in-quiz { animation: fade-in-quiz 0.3s ease-out; }
+                    `}</style>
+                </div>
             </div>
-            <button
-                onClick={handleNext}
-                disabled={selectedAnswerForCurrent === null || feedback === 'correct'}
-                className={`w-full bg-gradient-to-r from-accent-pink to-accent-yellow text-white font-bold py-3 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-pink/40 ${feedback === 'correct' ? 'opacity-0' : 'opacity-100'} disabled:opacity-50 disabled:cursor-not-allowed`}
-            >
-                {currentQuestionIndex < quiz.questions.length - 1 ? t('quiz.next') : t('quiz.finish')}
-            </button>
         </div>
     );
 };

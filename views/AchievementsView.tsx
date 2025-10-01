@@ -19,7 +19,7 @@ const CertificateCard: React.FC<{ levelNameKey: string; date: string }> = ({ lev
             <div className="flex items-center gap-4">
                 <CertificateIcon className="w-12 h-12 text-green-400" />
                 <div>
-                    <h3 className="text-xl font-bold text-white">{t(levelNameKey)}</h3>
+                    <h3 className="text-xl font-bold text-text-dark">{t(levelNameKey)}</h3>
                     <p className="text-sm text-text-muted">{t('achievements.completed_on')} {date}</p>
                 </div>
             </div>
@@ -37,7 +37,7 @@ const StoryAchievementCard: React.FC<{ achievementId: string }> = ({ achievement
             <div className="flex items-center gap-4">
                 <TrophyIcon className="w-12 h-12 text-accent-yellow" />
                 <div>
-                    <h3 className="text-xl font-bold text-white">{t(achievement.nameKey)}</h3>
+                    <h3 className="text-xl font-bold text-text-dark">{t(achievement.nameKey)}</h3>
                     <p className="text-sm text-text-muted">{t(achievement.descriptionKey)}</p>
                 </div>
             </div>
@@ -50,7 +50,11 @@ const AchievementsView: React.FC<AchievementsViewProps> = ({ user, levels, onBac
     const { t } = useLanguage();
     const { completedLevels, storyProgress } = user;
 
-    const unlockedStoryAchievements = Object.values(storyProgress || {}).flatMap(p => p.unlockedAchievements);
+    // FIX: Replaced Object.values with a type-safe implementation using Object.keys.
+    // Object.values on an object with an index signature returns `unknown[]`, causing a type error.
+    const unlockedStoryAchievements = storyProgress
+        ? Object.keys(storyProgress).flatMap(key => storyProgress[key].unlockedAchievements)
+        : [];
 
     const getLevelNameKey = (levelId: EducationalLevel) => {
         return levels.find(l => l.id === levelId)?.nameKey || 'Unknown Level';
@@ -62,7 +66,7 @@ const AchievementsView: React.FC<AchievementsViewProps> = ({ user, levels, onBac
         <div className="fixed inset-0 bg-primary-dark/80 backdrop-blur-sm z-50 p-4 sm:p-8 animate-fade-in overflow-y-auto">
             <div className="w-full max-w-4xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-4xl font-bold text-white">{t('achievements.title')}</h1>
+                    <h1 className="text-4xl font-bold text-text-dark">{t('achievements.title')}</h1>
                     <button onClick={onBack} className="p-2 rounded-full hover:bg-white/10 transition-colors transform hover:scale-110">
                         <CloseIcon className="w-8 h-8 text-text-muted" />
                     </button>
@@ -84,7 +88,7 @@ const AchievementsView: React.FC<AchievementsViewProps> = ({ user, levels, onBac
 
                 {unlockedStoryAchievements.length > 0 && (
                      <div className="mb-10">
-                        <h2 className="text-2xl font-bold text-white mb-4">{t('achievements.story_achievements_title')}</h2>
+                        <h2 className="text-2xl font-bold text-text-dark mb-4">{t('achievements.story_achievements_title')}</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {unlockedStoryAchievements.map((achieveId) => (
                                 <StoryAchievementCard key={achieveId} achievementId={achieveId} />
@@ -95,15 +99,16 @@ const AchievementsView: React.FC<AchievementsViewProps> = ({ user, levels, onBac
 
 
                 {completedLevels.length === 0 && unlockedStoryAchievements.length === 0 && (
-                    <div className="text-center bg-glass-bg border border-glass-border rounded-xl p-12">
-                        <h3 className="text-2xl font-bold text-white">{t('achievements.empty_title')}</h3>
+                    <div className="text-center bg-glass-bg border border-glass-border p-10 rounded-2xl">
+                        <TrophyIcon className="w-16 h-16 text-text-muted/50 mx-auto mb-4" />
+                        <h2 className="text-2xl font-bold text-text-dark">{t('achievements.empty_title')}</h2>
                         <p className="text-text-muted mt-2">{t('achievements.empty_subtitle')}</p>
                     </div>
                 )}
             </div>
              <style>{`
                 @keyframes fade-in {
-                    from { opacity: 0; transform: scale(0.95); }
+                    from { opacity: 0; transform: scale(0.98); }
                     to { opacity: 1; transform: scale(1); }
                 }
                 .animate-fade-in {

@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { User, Level, Lesson, AvatarItem, Story, Poll } from '../types';
 import { LockIcon, PlayIcon, CheckCircleIcon, StarIcon, CloseIcon, GiftIcon, TrophyIcon, SparklesIcon, BookOpenIcon, MapIcon, HeartIcon, QuestionMarkCircleIcon } from '../components/Icons';
@@ -37,7 +36,7 @@ const AvatarDisplay: React.FC<{ user: User, pointsEarned: number }> = ({ user, p
                 {pointsEarned > 0 && <PointsAnimation points={pointsEarned} />}
                 <Avatar avatar={user.avatar} />
             </div>
-            <p className="text-center font-bold text-2xl mt-2 text-white">{user.name}</p>
+            <p className="text-center font-bold text-2xl mt-2 text-text-dark">{user.name}</p>
             <p className="text-center text-md text-text-muted">{t('learning.avatar_level', { stage: user.avatar.stage })}</p>
         </Droppable>
     );
@@ -55,7 +54,7 @@ const ContinueJourneyCard: React.FC<{
         return (
             <div className="bg-glass-bg border border-glass-border rounded-2xl p-6 flex flex-col items-center text-center">
                  <TrophyIcon className="w-16 h-16 text-accent-yellow mb-4" />
-                <h3 className="text-xl font-bold text-white">{t('dashboard.journey_complete_title')}</h3>
+                <h3 className="text-xl font-bold text-text-dark">{t('dashboard.journey_complete_title')}</h3>
                 <p className="text-text-muted">{t('dashboard.journey_complete_subtitle')}</p>
             </div>
         );
@@ -99,7 +98,7 @@ const ContinueJourneyCard: React.FC<{
             <div className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center bg-accent-pink">{icon}</div>
             <div className="flex-grow text-center md:text-left">
                 <h3 className="text-sm font-bold text-accent-pink uppercase tracking-wider">{t('dashboard.continue_journey')}</h3>
-                <h4 className="text-2xl font-bold text-white mt-1">{title}</h4>
+                <h4 className="text-2xl font-bold text-text-dark mt-1">{title}</h4>
                 <p className="text-text-muted mt-1">{description}</p>
                 { progress > 0 && 
                   <div className="w-full bg-primary-dark rounded-full h-2.5 mt-3">
@@ -123,7 +122,7 @@ const TipOfTheDayCard: React.FC = () => {
         <div className="bg-glass-bg border border-glass-border rounded-2xl p-6 h-full flex flex-col">
             <div className="flex items-center gap-3 mb-3">
                 <SparklesIcon className="w-6 h-6 text-accent-yellow" />
-                <h3 className="text-lg font-bold text-white">{t('dashboard.tip_of_the_day')}</h3>
+                <h3 className="text-lg font-bold text-text-dark">{t('dashboard.tip_of_the_day')}</h3>
             </div>
             <p className="text-text-muted flex-grow">{t(tip.textKey)}</p>
         </div>
@@ -142,7 +141,7 @@ const HotTopicCard: React.FC<{ onShowGlossary: (term: string) => void }> = ({ on
         <div className="bg-glass-bg border border-glass-border rounded-2xl p-6 h-full flex flex-col">
             <div className="flex items-center gap-3 mb-3">
                 <BookOpenIcon className="w-6 h-6 text-accent-pink" />
-                <h3 className="text-lg font-bold text-white">{t('dashboard.hot_topic')}</h3>
+                <h3 className="text-lg font-bold text-text-dark">{t('dashboard.hot_topic')}</h3>
             </div>
             <div className="flex-grow">
                 <h4 className="font-semibold text-accent-yellow">{t(term.termKey)}</h4>
@@ -170,7 +169,7 @@ const PollCard: React.FC = () => {
 
     return (
         <div className="bg-glass-bg border border-glass-border rounded-2xl p-6 h-full flex flex-col">
-            <h3 className="text-lg font-bold text-white mb-3">{t('dashboard.quick_challenge')}</h3>
+            <h3 className="text-lg font-bold text-text-dark mb-3">{t('dashboard.quick_challenge')}</h3>
             <p className="text-text-muted mb-4">{t(poll.questionKey)}</p>
             <div className="space-y-2 flex-grow">
                 {poll.optionsKeys.map((optionKey, index) => (
@@ -202,7 +201,7 @@ const ToolsShortcut: React.FC<{ onShowGlossary: () => void }> = ({ onShowGlossar
     ];
     return (
         <div>
-            <h3 className="text-lg font-bold text-white mb-3">{t('dashboard.tools_shortcut')}</h3>
+            <h3 className="text-lg font-bold text-text-dark mb-3">{t('dashboard.tools_shortcut')}</h3>
             <div className="grid grid-cols-3 gap-4">
                 {tools.map(tool => (
                     <div key={tool.id} onClick={tool.enabled ? tool.action : undefined}
@@ -216,8 +215,6 @@ const ToolsShortcut: React.FC<{ onShowGlossary: () => void }> = ({ onShowGlossar
         </div>
     );
 };
-
-// --- MAIN LEARNING VIEW ---
 
 const LessonCard: React.FC<{ lesson: Lesson; onLessonClick: (lesson: Lesson) => void; }> = ({ lesson, onLessonClick }) => {
     const { t } = useLanguage();
@@ -252,7 +249,7 @@ const AdventureCard: React.FC<{ story: Story; onStart: (story: Story) => void }>
 const LevelTab: React.FC<{ level: Level; isActive: boolean; onClick: () => void }> = ({ level, isActive, onClick }) => {
     const { t } = useLanguage();
     return (
-        <button onClick={level.unlocked ? onClick : undefined} className={`flex items-center gap-2 px-4 py-3 rounded-t-lg font-semibold transition-all duration-300 ease-in-out outline-none ${isActive ? 'bg-glass-bg border-b-2 border-accent-yellow text-white' : 'bg-transparent text-text-muted'} ${level.unlocked ? 'cursor-pointer hover:bg-white/5 hover:text-white' : 'cursor-not-allowed opacity-50'}`}>
+        <button onClick={level.unlocked ? onClick : undefined} className={`flex items-center gap-2 px-4 py-3 rounded-t-lg font-semibold transition-all duration-300 ease-in-out outline-none ${isActive ? 'bg-glass-bg border-b-2 border-accent-yellow text-text-dark' : 'bg-transparent text-text-muted'} ${level.unlocked ? 'cursor-pointer hover:bg-white/5 hover:text-text-dark' : 'cursor-not-allowed opacity-50'}`}>
             {!level.unlocked && <LockIcon className="w-4 h-4" />}
             <span>{t(level.nameKey)}</span>
         </button>
@@ -274,15 +271,14 @@ const FinalAssessmentButton: React.FC<{ level: Level; onStart: () => void }> = (
     );
 };
 
-
 const LessonModal: React.FC<{ lesson: Lesson; onQuizComplete: (lesson: Lesson, score: number) => void; onClose: () => void; }> = ({ lesson, onQuizComplete, onClose }) => {
     const { t } = useLanguage();
     const [showQuiz, setShowQuiz] = useState(false);
     return (
         <div className="fixed inset-0 bg-primary-dark/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="bg-glass-bg border border-glass-border rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 relative text-text-light shadow-2xl">
-                <button onClick={onClose} className="absolute top-4 right-4 text-text-muted hover:text-white z-10"><CloseIcon /></button>
-                <h2 className="text-3xl font-bold mb-4 text-white">{t(lesson.titleKey)}</h2>
+                <button onClick={onClose} className="absolute top-4 right-4 text-text-muted hover:text-text-dark z-10"><CloseIcon /></button>
+                <h2 className="text-3xl font-bold mb-4 text-text-dark">{t(lesson.titleKey)}</h2>
                 {!showQuiz ? (
                     <div>
                         <div className="w-full aspect-video rounded-lg mb-4 bg-black/50 overflow-hidden">
@@ -310,16 +306,17 @@ const RewardModal: React.FC<{ item: AvatarItem; onClose: () => void }> = ({ item
     const { t } = useLanguage();
     return (
         <div className="fixed inset-0 bg-primary-dark/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={onClose}>
-            <div className="bg-glass-bg border border-glass-border rounded-2xl p-8 text-center shadow-2xl animate-pulse text-white" style={{ animationIterationCount: 1, animationDuration: '0.5s' }}>
+            <div className="bg-glass-bg border border-glass-border rounded-2xl p-8 text-center shadow-2xl animate-pulse text-text-dark" style={{ animationIterationCount: 1, animationDuration: '0.5s' }}>
                 <GiftIcon className="w-16 h-16 mx-auto text-accent-yellow mb-4" />
                 <h2 className="text-2xl font-bold">{t('learning.reward_title')}</h2>
                 <p className="text-text-muted mt-2 mb-6">{t('learning.reward_subtitle')} <span className="font-bold text-text-light">{t(item.nameKey)}</span></p>
-                <button onClick={onClose} className="bg-gradient-to-r from-accent-pink to-accent-yellow font-bold py-2 px-8 rounded-lg">{t('learning.reward_button')}</button>
+                <button onClick={onClose} className="bg-gradient-to-r from-accent-pink to-accent-yellow text-white font-bold py-2 px-8 rounded-lg">{t('learning.reward_button')}</button>
             </div>
         </div>
     )
 };
 
+// --- MAIN LEARNING VIEW ---
 
 const LearningView: React.FC<{
     user: User;
@@ -393,8 +390,8 @@ const LearningView: React.FC<{
             {takingFinalTest && (
                 <div className="fixed inset-0 bg-primary-dark/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div className="bg-glass-bg border border-glass-border rounded-2xl w-full max-w-3xl p-6 relative shadow-2xl">
-                         <button onClick={() => setTakingFinalTest(null)} className="absolute top-4 right-4 text-text-muted hover:text-white"><CloseIcon /></button>
-                         <h2 className="text-3xl font-bold mb-4 text-center text-white">{t('learning.final_assessment_title')}: {t(takingFinalTest.nameKey)}</h2>
+                         <button onClick={() => setTakingFinalTest(null)} className="absolute top-4 right-4 text-text-muted hover:text-text-dark"><CloseIcon /></button>
+                         <h2 className="text-3xl font-bold mb-4 text-center text-text-dark">{t('learning.final_assessment_title')}: {t(takingFinalTest.nameKey)}</h2>
                          <QuizView quiz={takingFinalTest.finalAssessment} onComplete={(score) => {
                             onFinalTestComplete(takingFinalTest, score);
                             setTakingFinalTest(null);
@@ -414,7 +411,7 @@ const LearningView: React.FC<{
                     </div>
                 </div>
                  <div className="bg-glass-bg backdrop-blur-lg border border-glass-border rounded-2xl p-6 shadow-xl">
-                    <h3 className="font-bold text-xl mb-4 text-white">{t('learning.wardrobe_title')}</h3>
+                    <h3 className="font-bold text-xl mb-4 text-text-dark">{t('learning.wardrobe_title')}</h3>
                      <div className="grid grid-cols-4 gap-3 h-32 overflow-y-auto pr-2">
                          {inventory.map((item) => (
                             <Draggable key={item.id} id={item.id}>
@@ -433,16 +430,16 @@ const LearningView: React.FC<{
 
             {/* --- Main Content Area --- */}
             <div className="md:col-span-8 lg:col-span-9 space-y-6">
-                <h1 className="text-3xl lg:text-4xl font-bold text-white">{t('dashboard.welcome_back', {name: user.name})}</h1>
+                <h1 className="text-3xl lg:text-4xl font-bold text-text-dark">{t('dashboard.welcome_back', {name: user.name})}</h1>
                 <ContinueJourneyCard nextItem={nextJourneyItem} onLessonClick={onLessonClick} onStartStory={onStartStory} onStartAssessment={setTakingFinalTest} />
-                <ToolsShortcut onShowGlossary={onShowGlossary} />
+                <ToolsShortcut onShowGlossary={() => onShowGlossary()} />
                 <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
                     <TipOfTheDayCard />
                     <HotTopicCard onShowGlossary={onShowGlossary} />
                     <PollCard />
                 </div>
                 <div>
-                     <h2 className="text-2xl font-bold text-white mb-4">{t('dashboard.view_learning_path')}</h2>
+                     <h2 className="text-2xl font-bold text-text-dark mb-4">{t('dashboard.view_learning_path')}</h2>
                      <div className="border-b-2 border-glass-border">
                         {levels.map(level => (
                             <LevelTab key={level.id} level={level} isActive={level.id === activeLevelId} onClick={() => setActiveLevelId(level.id)} />
